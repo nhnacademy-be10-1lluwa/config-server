@@ -12,3 +12,15 @@ spring:
           uri: https://github.com/nhnacademy-be10-1lluwa/bookstore-infra.git
           clone-on-start: true
           default-label: master
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
