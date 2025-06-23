@@ -9,8 +9,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/nhnacademy-be10-1lluwa/bookstore-infra.git
-          default-label: master
+          uri: https://github.com/nhnacademy-be10-1lluwa/config-repo.git
+          default-label: main
+          username: ${GIT_USERNAME}
+          password: ${GIT_PASSWORD}
 
 management:
   endpoints:
