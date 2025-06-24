@@ -43,5 +43,8 @@ jobs:
             export GIT_USERNAME=${{ secrets.GIT_USERNAME }}
             export GIT_PASSWORD=${{ secrets.GIT_PASSWORD }}
             cd ~/deploy/config/target
-            pkill -f config-server.jar || true
+            PID=$(lsof -ti:10319)
+            if [ -n "$PID" ]; then
+              kill $PID
+            fi
             nohup java -jar config-server.jar > log.out 2>&1 &
