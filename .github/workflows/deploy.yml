@@ -32,7 +32,7 @@ jobs:
           source: "target/config-server.jar"
           target: "~/deploy/config"
 
-      - name: Export GIT credentials and restart service
+      - name: Restart service via remote script
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.SSH_IP }}
@@ -40,11 +40,5 @@ jobs:
           password: ${{ secrets.REMOTE_PASS }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            export GIT_USERNAME=${{ secrets.GIT_USERNAME }}
-            export GIT_PASSWORD=${{ secrets.GIT_PASSWORD }}
-            cd ~/deploy/config/target
-            PID=$(lsof -ti:10319)
-            if [ -n "$PID" ]; then
-              kill $PID
-            fi
-            nohup /usr/local/java/java21/bin/java -jar config-server.jar > log.out 2>&1 &
+            cd ~/deploy/config
+            ./start.sh
