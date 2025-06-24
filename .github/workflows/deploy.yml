@@ -47,4 +47,4 @@ jobs:
             if [ -n "$PID" ]; then
               kill $PID
             fi
-            nohup java -jar config-server.jar > log.out 2>&1 &
+            nohup /usr/local/java/java21/bin/java -jar config-server.jar > log.out 2>&1 &
