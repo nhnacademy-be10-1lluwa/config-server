@@ -74,7 +74,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <finalName>config-server</finalName>
+        <finalName>1lluwa-config-server</finalName>
     </build>
 
 </project>
