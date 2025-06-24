@@ -42,7 +42,7 @@ jobs:
           script: |
             export GIT_USERNAME=${{ secrets.GIT_USERNAME }}
             export GIT_PASSWORD=${{ secrets.GIT_PASSWORD }}
-            cd ~/deploy/config/target
+            cd ~/deploy/config
             PID=$(lsof -ti:10319)
             if [ -n "$PID" ]; then
               kill $PID
