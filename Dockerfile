@@ -1,9 +1,9 @@
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk
 
 # 작업 디렉토리 설정
 WORKDIR /app
-COPY target/1lluwa-config-server.jar /app/config-server.jar
-COPY application.yml /app/application.yml
+ARG JAR_FILE=./target/1lluwa-config-server.jar
+COPY ${JAR_FILE} /app/1lluwa-config-server.jar
 
 EXPOSE 10319
 
@@ -11,4 +11,4 @@ EXPOSE 10319
 ENV GIT_USERNAME=""
 ENV GIT_PASSWORD=""
 
-ENTRYPOINT ["java", "-jar", "/app/config-server.jar", "--spring.config.location=file:/app/application.yml"]
+ENTRYPOINT ["java", "-jar", "/app/config-server.jar"]
