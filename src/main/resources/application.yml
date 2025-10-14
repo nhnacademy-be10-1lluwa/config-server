@@ -12,7 +12,7 @@ spring:
           default-label: main
           username: ${GIT_USERNAME}
           password: ${GIT_PASSWORD}
-      enabled: false
+      enabled: true
 
 management:
   endpoints:
