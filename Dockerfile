@@ -4,7 +4,6 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 ARG JAR_FILE=./target/1lluwa-config-server.jar
 COPY ${JAR_FILE} /app/1lluwa-config-server.jar
-COPY ./application.yml /app/application.yml
 
 EXPOSE 10319
 
@@ -12,4 +11,4 @@ EXPOSE 10319
 ENV GIT_USERNAME=""
 ENV GIT_PASSWORD=""
 
-ENTRYPOINT ["java", "-jar", "/app/1lluwa-config-server.jar", "--spring.config.location=file:/app/application.yml"]
+ENTRYPOINT ["java", "-jar", "/app/1lluwa-config-server.jar"]
